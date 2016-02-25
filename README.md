@@ -1,0 +1,2 @@
+# djaaks
+Django site
