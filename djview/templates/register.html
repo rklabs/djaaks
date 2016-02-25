@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<html>
+  <head>
+    <title>RK</title>
+  </head>
+
+  <body>
+    <h1>Register with djaaks</h1>
+    
+    {% if registered %}
+    RK says: <strong>Thank you for registering!</strong>
+    {% else %}
+    RK says: <strong>Register here</strong> 
+  
+    <form id="user_form" method="post" action="/djview/register/"
+      enctype="multipart/form-data">
+      {% csrf_token %}
+    
+      {% bootstrap_form user_form %}
+      {% bootstrap_form profile_form %}
+
+      {% buttons %}
+      <button type="submit" class="btn btn-primary" value="Register">
+      {% bootstrap_icon "star" %} Submit
+      </button>
+      {% endbuttons %}
+
+    </form>
+    {% endif %}
+  </body>
+</html>
+  

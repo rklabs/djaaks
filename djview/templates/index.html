@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html>
+  <head>
+    <title>Welcome to djview!</title>
+  </head>
+  
+  <body>
+    <h1>RK says ....</h1>
+    {% if categories %}
+      <ul>
+        {% for category in categories %}
+          <li><a href="/djview/category/{{ category.slug }}">{{ category.name }}</a></li>
+        {% endfor %}
+    {% else %}
+      <strong>No categories present</strong>
+    {% endif %}
+    <br />
+    <a href="/djview/add_category/">Add a new category</a>
+    <br />
+    <a href="/djview/register">Register</a>
+    <br />
+    <a href="/djview/user_login/">Login</a>
+    <br />
+    <a href="/djview/about">About</a>
+    <br />
+    <img src="{% static "images/github-mark.png" %}" alt="Github rules" />
+
+    </form>
+  </body>
+
+</html> 

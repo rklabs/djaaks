@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>RK</title>
+  </head>
+
+  <body>
+    {% if category %}
+    <h1>{{ category_name }}</h1>
+      {% if pages %}
+        <ul>
+          {% for page in pages %}
+          <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+          {% endfor %}    
+        </ul>
+      {% else %}
+        <strong>No pages currently in category</strong> 
+        <br />
+        {% if category_name_slug %}
+        <a href="/djview/category/{{ category_name_slug }}/add_page/">Add page</a>
+        {% else %}
+        There is no category_name_slug
+        {% endif %}
+      {% endif %}
+    {% else %}
+      The specified category {{ category_name }} does not exist!
+    {% endif %}
+  </body>
+</html>
+
