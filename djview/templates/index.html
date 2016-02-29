@@ -6,9 +6,13 @@
   <head>
     <title>Welcome to djview!</title>
   </head>
-  
+
   <body>
-    <h1>RK says ....</h1>
+    {% if user.is_authenticated %}
+    <h1>RK says .... hello {{ user.username }}</h1>
+    {% else %}
+    <h1>RK says .... hello world </h1>
+    {% endif %}
     {% if categories %}
       <ul>
         {% for category in categories %}
@@ -31,4 +35,4 @@
     </form>
   </body>
 
-</html> 
+</html>
