@@ -94,7 +94,7 @@ DATABASES = {
 django_auth = 'django.contrib.auth.password_validation.'
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': django_auth + 'userAttributeSimilarityValidator',
+        'NAME': django_auth + 'UserAttributeSimilarityValidator',
     },
     {
         'NAME': django_auth + 'MinimumLengthValidator',
