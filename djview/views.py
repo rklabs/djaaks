@@ -1,6 +1,8 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
+
 from djview.forms import CategoryForm, PageForm, UserForm, UserProfileForm
 from djview.models import Category, Page
 
@@ -131,3 +133,15 @@ def djview_index(request):
 
 def djview_about(request):
     return HttpResponse('About djview <br /> <a href="/djview">Index</a>')
+
+
+@login_required
+def restricted(request):
+    return HttpResponse("Since you are logged in, you can see this text")
+
+
+@login_required
+def user_logout(request):
+    logout(request)
+
+    return HttpResponse('<a href="/djview/">Index</a>')

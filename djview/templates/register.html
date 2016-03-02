@@ -11,21 +11,20 @@
 
 <html>
   <head>
-    <title>RK</title>
-  </head>
+    <title>DJAAKS</head>
 
   <body>
     <h1>Register with djaaks</h1>
-    
+
     {% if registered %}
-    RK says: <strong>Thank you for registering!</strong>
+    DJAAKS says: <strong>Thank you for registering!</strong>
     {% else %}
-    RK says: <strong>Register here</strong> 
-  
+    DJAAKS says: <strong>Register here</strong>
+
     <form id="user_form" method="post" action="/djview/register/"
       enctype="multipart/form-data">
       {% csrf_token %}
-    
+
       {% bootstrap_form user_form %}
       {% bootstrap_form profile_form %}
 
@@ -39,4 +38,4 @@
     {% endif %}
   </body>
 </html>
-  
+

@@ -57,7 +57,7 @@ ROOT_URLCONF = 'djaaks.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ 
+        'DIRS': [
             os.path.join(BASE_DIR) + '/djview/templates'
         ],
         'APP_DIRS': True,
@@ -84,26 +84,26 @@ DATABASES = {
         'NAME': 'djaaks',
         'USER': 'root',
         'PASSWORD': 'rkadam',
-        'HOST': 'localhost'    
+        'HOST': 'localhost'
     }
 }
 
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
-
+django_auth = 'django.contrib.auth.password_validation.'
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': django_auth + 'userAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': django_auth + 'MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': django_auth + 'CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': django_auth + 'NumericPasswordValidator',
     },
 ]
 
@@ -136,4 +136,7 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR + MEDIA_URL)
-#ROOT_URLCONF = 'djview.urls'
+# Redirect / to /djview
+# ROOT_URLCONF = 'djview.urls'
+# Redirect unauthenticated users to login
+LOGIN_URL = '/djview/user_login/'

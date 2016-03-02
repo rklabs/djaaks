@@ -2,18 +2,18 @@
 
 <html>
   <head>
-    <h1>RK</hl>
+    <h1>DJAAKS</hl>
   </head>
 
   <body>
     <h1>Add a category</h1>
-    
+
     <form id="category_form" method="post" action="{% url 'add_category' %}">
       {% csrf_token %}
       {% for hidden in form.hidden_fields %}
         {{ hidden }}
       {% endfor %}
-      
+
       {% for field in form.visible_fields %}
         {{ field.errors }}
         {{ field.help_text }}

@@ -2,7 +2,7 @@
 
 <html>
   <head>
-    <title>RK</title>
+    <title>DJAAKS</title>
   </head>
 
   <body>
@@ -12,10 +12,10 @@
         <ul>
           {% for page in pages %}
           <li><a href="{{ page.url }}">{{ page.title }}</a></li>
-          {% endfor %}    
+          {% endfor %}
         </ul>
       {% else %}
-        <strong>No pages currently in category</strong> 
+        <strong>No pages currently in category</strong>
         <br />
         {% if category_name_slug %}
         <a href="/djview/category/{{ category_name_slug }}/add_page/">Add page</a>

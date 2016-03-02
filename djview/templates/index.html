@@ -9,10 +9,10 @@
 
   <body>
     {% if user.is_authenticated %}
-    <h1>RK says .... hello {{ user.username }}</h1>
-    {% else %}
-    <h1>RK says .... hello world </h1>
-    {% endif %}
+      <h1>DJAAKS says .... hello {{ user.username }}</h1>
+      <a href="/djview/restricted/">Restricted page</a>
+      <br />
+      <a href="/djview/logout/">Logout</a>
     {% if categories %}
       <ul>
         {% for category in categories %}
@@ -24,15 +24,14 @@
     <br />
     <a href="/djview/add_category/">Add a new category</a>
     <br />
-    <a href="/djview/register">Register</a>
-    <br />
-    <a href="/djview/user_login/">Login</a>
-    <br />
     <a href="/djview/about">About</a>
     <br />
     <img src="{% static "images/github-mark.png" %}" alt="Github rules" />
-
-    </form>
+    {% else %}
+      <h1>DJAAKS says .... hello unknown </h1>
+      <a href="/djview/register/">Register here</a>
+      <br />
+      <a href="/djview/user_login/">Login</a>
+    {% endif %}
   </body>
-
 </html>
