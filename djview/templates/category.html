@@ -7,22 +7,25 @@
 {% endblock %}
 
 {% block body_block %}
-<h1>{{ category_name }}</h1>
-  {% if category %}
-    {% if pages %}
-      <ul>
-        {% for page in pages %}
-          <li><a href="{{ page.url }}">{{ page.title }}</a></li>
-        {% endfor %}
-      </ul>
-    {% else %}
-      <strong>No pages currently in category</strong>
-    {% endif %}
+<h1>
+  {{ category_name }}
+</h1>
+{% if category %}
 
-    {% if user.is_authenticated %}
-      <a href="/djview/category/{{ category.slug }}/add_page/">Add a Page</a>
-    {% endif %}
+  {% if pages %}
+    <ul>
+      {% for page in pages %}
+        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+      {% endfor %}
+    </ul>
   {% else %}
-    The specified category {{ category_name }} does not exist!
+    <strong>No pages currently in category</strong>
   {% endif %}
+
+  {% if user.is_authenticated %}
+    <a href="/djview/category/{{ category.slug }}/add_page/">Add a Page</a>
+  {% endif %}
+{% else %}
+  The specified category {{ category_name }} does not exist!
+{% endif %}
 {% endblock %}
