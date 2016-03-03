@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% load staticfiles %}
 
 {% load bootstrap3 %}
 
@@ -9,16 +11,16 @@
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% bootstrap_messages %}
 
-<html>
-  <head>
-    <title>DJAAKS</head>
+{% block title %}
+  Registration
+{% endblock %}
 
-  <body>
-    <h1>Register with djaaks</h1>
+{% block body_block %}
+  <h1>Register with djaaks</h1>
 
-    {% if registered %}
+  {% if registered %}
     DJAAKS says: <strong>Thank you for registering!</strong>
-    {% else %}
+  {% else %}
     DJAAKS says: <strong>Register here</strong>
 
     <form id="user_form" method="post" action="/djview/register/"
@@ -29,13 +31,12 @@
       {% bootstrap_form profile_form %}
 
       {% buttons %}
-      <button type="submit" class="btn btn-primary" value="Register">
-      {% bootstrap_icon "star" %} Submit
-      </button>
+        <button type="submit" class="btn btn-primary" value="Register">
+        {% bootstrap_icon "star" %} Submit
+        </button>
       {% endbuttons %}
 
-    </form>
-    {% endif %}
-  </body>
-</html>
+  </form>
+  {% endif %}
 
+{% endblock %}
