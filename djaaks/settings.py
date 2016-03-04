@@ -141,3 +141,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR + MEDIA_URL)
 # ROOT_URLCONF = 'djview.urls'
 # Redirect unauthenticated users to login
 LOGIN_URL = '/djview/user_login/'
+
+# User registration
+REGISTRATION_OPEN = True
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = '/djview/'
+LOGIN_URL = '/djview/login/'
