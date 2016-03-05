@@ -8,15 +8,15 @@
 
 {% block body_block %}
 
-<h1>Login to DJAAKS</h1>
+<link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
 
-<form id="login_form" method="post" action="/djview/user_login/">
+<form class="form-signin" role="form" method="POST" action=".">
   {% csrf_token %}
-  Username: <input type="text" name="username" value="" size="50"/>
-  <br />
-  Password: <input type="password" name="password" value="" size="50"/>
-  <br />
-  <input type="submit" value="submit"/>
+  <h2 class="form-sigin-heading">Please sign in</h2>
+  <input class="form-control" placeholder="Username" id="id_username" maxlength="254" name="username" type="text" required autofocus=""/>
+  <input type="password" class="form-control" placeholder="Password" id="id_password" name="password" required />
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">Sign in</button>
 </form>
 
 {% endblock %}

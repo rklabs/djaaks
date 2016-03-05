@@ -13,9 +13,9 @@
     <h2>DJAAKS says... hello {{ user.username }}!</h2>
   </div>
 
-  <div class="row placeholders">
-    <div class="col-xs-12 col-sm-6 placeholder">
-      <h4>Categories</h4>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Categories</h3>
       {% if categories %}
         <ul class="list-group">
         {% for category in categories %}
@@ -26,13 +26,14 @@
          <strong>There are no categories present.</strong>
       {% endif %}
     </div>
-
-     <div class="col-xs-12 col-sm-6 placeholder">
-      <h4>Pages</h4>
+  </div>
+  <div class="panel panel-primary">
+     <div class="panel-heading">
+      <h3 class="panel-title">Pages</h3>
       {% if pages %}
-        <ul>
+        <ul class="list-group">
         {% for page in pages %}
-          <li><a href="{{page.url}}">{{ page.title }}</a></li>
+          <li class="list-group-item"><a href="{{ page.url }}">{{ page.title }}</a></li>
         {% endfor %}
         </ul>
       {% else %}
