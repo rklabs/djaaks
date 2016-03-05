@@ -3,40 +3,50 @@
 {% load staticfiles %}
 
 {% block title %}
-  Welcome to DJAAKS
+  DJAAKS Index
 {% endblock %}
 
 {% block body_block %}
-  {% if user.is_authenticated %}
-    <h1>DJAAKS says .... hello {{ user.username }}</h1>
-    <a href="/djview/restricted/">Restricted page</a>
-    <br />
-    <a href="/djview/logout/">Logout</a>
 
-    {% if categories %}
-      <ul>
+{% if user.is_authenticated %}
+  <div class="page-header">
+    <h2>DJAAKS says... hello {{ user.username }}!</h2>
+  </div>
+
+  <div class="row placeholders">
+    <div class="col-xs-12 col-sm-6 placeholder">
+      <h4>Categories</h4>
+      {% if categories %}
+        <ul class="list-group">
         {% for category in categories %}
-          <li><a href="/djview/category/{{ category.slug }}">{{ category.name }}</a></li>
+          <li class="li-group-item"><a href="{% url 'category'  category.slug %}">{{ category.name }}</a></li>
         {% endfor %}
-    {% else %}
-      <strong>No categories present</strong>
-    {% endif %}
+        </ul>
+      {% else %}
+         <strong>There are no categories present.</strong>
+      {% endif %}
+    </div>
 
-    <br />
-    <a href="/djview/add_category/">Add a new category</a>
-    <br />
-    <a href="/djview/about">About</a>
-    <br />
+     <div class="col-xs-12 col-sm-6 placeholder">
+      <h4>Pages</h4>
+      {% if pages %}
+        <ul>
+        {% for page in pages %}
+          <li><a href="{{page.url}}">{{ page.title }}</a></li>
+        {% endfor %}
+        </ul>
+      {% else %}
+        <strong>There are no categories present.</strong>
+      {% endif %}
+     </div>
+  </div>
 
-    <img src="{% static "images/github-mark.png" %}" alt="Github rules" />
+{% else %}
+  <div class="page-header">
+    <h1>DJAAKS says... hello unknown user!</h1>
+  </div>
+{% endif %}
 
-  {% else %}
-      <h1>DJAAKS says .... hello unknown user</h1>
-      <a href="/djview/register/">Register here</a>
-      <br />
-      <a href="/djview/user_login/">Login</a>
-  {% endif %}
-
-  <p>Visits: {{ visits  }}</p>
+<p> visits: {{ visits }}</p>
 
 {% endblock %}

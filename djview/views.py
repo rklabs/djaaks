@@ -160,7 +160,7 @@ def djview_index(request):
 
 
 def djview_about(request):
-    return HttpResponse('About djview <br /> <a href="/djview">Index</a>')
+    return render(request, 'about.html')
 
 
 @login_required
